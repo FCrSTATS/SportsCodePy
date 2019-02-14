@@ -1,12 +1,12 @@
 
-<img width="220" alt="portfolio_view" align="right" src="https://github.com/FCrSTATS/SportsCodeR/blob/master/img/SportsCodeR.png">
+<img width="220" alt="portfolio_view" align="right" src="https://github.com/FCrSTATS/SportsCodeR/blob/master/img/SportsCodePy.png">
 
 # SportsCodeR
 
 Sporstcode is one of the leading video analysis software in the performance analysis field today, used by thousands of analysts, coaches and athletes around the world. The platform allows analysts and coaches to visually identify what went well and what could be improved in a training session or game by providing a quick and easy way to create interactive reports linked to key highlights. The process is very simple: capture your video into Sportscode, code the different events that take place in the footage, evaluate the results of the relevant events captured and present the insights to coaches and athletes. 
 
 A powerful feature of Sportscode is the ability to import an XML file that creates timelines of clips from the related data. This is a largely under-utilised feature that has huge potential. The SportsCodePy functions aim to increase it's usage by making it easy from turning a pandas dataframe of metrics into a SportsCode ready XML file. 
-
+SportsCodeR.png
 This is a beta version, with more functions to be added at a later date. Feedback will be gratefully received to improve the package. 
 
 ## Not a Package
