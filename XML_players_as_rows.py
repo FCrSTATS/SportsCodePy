@@ -1,5 +1,5 @@
-
 from xml.etree import ElementTree as ET
+import pandas as pd
 
 def players_as_rows(dat, period1_start, period2_start, player,
                  team, time, lead_time, lag_time, metric_val,
@@ -8,11 +8,11 @@ def players_as_rows(dat, period1_start, period2_start, player,
                  period4_start = 0,):
 
     df = pd.DataFrame()
-    df['ID'] = dat[ID]
-    df['period'] = dat[period_id]
+    df['ID'] = dat[ID].astype(str)
+    df['period'] = dat[period_id].astype(int)
     df['player_name'] = dat[player]
     df['team_name'] = dat[team]
-    df['time'] = dat[time]
+    df['time'] = dat[time].astype(int)
     df['metric'] = dat[metric_val]
 
     periods = [period1_start, period2_start, period3_start, period4_start]
@@ -21,7 +21,7 @@ def players_as_rows(dat, period1_start, period2_start, player,
     new_ends = []
 
     for row in range(0,len(df)):
-        new_time = int(df.iloc[row]['time']) + periods[ (int(df.iloc[row]['period']) - 1) ]
+        new_time = df.iloc[row]['time'] + periods[df.iloc[row]['period']-1]
         new_start = new_time - lead_time
         new_end = new_time + lag_time
         new_starts.append(new_start)
@@ -38,7 +38,7 @@ def players_as_rows(dat, period1_start, period2_start, player,
     header2.text = "sort order"
     instances = ET.SubElement(root, "ALL_INSTANCES")
 
-    for i in range(0, len(test_df)):
+    for i in range(0, len(df)):
 
         instances_mini = ET.SubElement(instances, "instance")
 
